@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Arkane Digital LLC's Next.js Demo
 
 ## Getting Started
 
@@ -6,15 +6,9 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
@@ -22,17 +16,47 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Storybook
 
-To learn more about Next.js, take a look at the following resources:
+To run Storybook, run the following command:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run storybook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Storybook runs on [http://localhost:6006](http://localhost:6006). This project is using Storybook's new Framework API, which automatically tailors itself to match your Next configuration. If you make significant changes to the Next configuration, you may need to rerun the Storybook command to update Storybook's configuration via `@storybook/next`.
 
-## Deploy on Vercel
+For more information about the changes, you visit the following pages:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+https://medium.com/storybookjs/integrate-next-js-and-storybook-automatically-bd3c402f8a94
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+https://storybook.js.org/blog/integrate-nextjs-and-storybook-automatically/
+
+## Tailwind CSS
+
+This project uses [Tailwind CSS](https://tailwindcss.com/) for styling. To keep file size down, the purge option has been set. If you create any folders aside from `components` and `pages` that have markup with class names, you will need to add them to the `purge` array in `tailwind.config.js`, and update this README to reflect the change.
+
+If you need to add colors, make sure to do so in `tailwind.config.js` under `module.exports.theme.colors` as well as `styles/_variables.scss`.
+
+```js
+  theme: {
+    colors: {
+      "brand-dark": "#0e0e24",
+      "brand-light": "#f4f6fc",
+      primary: "#b803a6",
+    },
+    extend: {
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+    },
+  },
+```
+
+This will ensure that the colors are automatically applied to the Tailwind CSS classes. You will be able to automatically use classes such as `bg-brand-dark`, `text-brand-light` and `border-primary` in your JSX. There are rare use cases where you will need the variables somewhere that Tailwind does not provide them. In these cases, you can use the variables in `styles/_variables.scss`.
+
+## React Icons
+
+All icons in the project come from [React Icons](https://react-icons.github.io/react-icons/). It includes all icons from popular packages such as FontAwesome, Bootstrap Icons, Heroicons, Material and more. Coloring and styling is much simpler, and the svgs are used as a React Component, which makes adding them to your JSX simpler. [React Icons Github Repo](https://github.com/react-icons/react-icons) will give you additional details on how to perform more advanced styling.
