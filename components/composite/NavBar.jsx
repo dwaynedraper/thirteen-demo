@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className='bg-brand-dark text-brand-light'
+      className={`bg-brand-dark text-brand-light ${montserrat.className} ${styles["nav-arkane"]} shadow-lg`}
       onMouseLeave={handleMouseLeave}
     >
       {/* Logo and nav items */}
@@ -54,7 +54,7 @@ const Navbar = () => {
       {/* Megamenu */}
       {currentMegamenu && (
         <div
-          className='megamenu bg-brand-dark text-brand-light'
+          className='megamenu bg-brand-dark text-brand-light pt-4 border-t-2 border border-brand-light'
           onMouseLeave={handleMouseLeave}
         >
           <div className='container mx-auto px-4 py-2'>
